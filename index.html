@@ -1,120 +1,54 @@
-<!DOCTYPE html>
+<!<!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>สำหรับคาปินมเนย 💖</title>
+<title>ขอโทษนะคับคาปินมเนย 💖</title>
 <style>
-body{
-    margin:0;
-    font-family:sans-serif;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-.box{
-    background:rgba(255,255,255,0.15);
-    padding:30px;
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-    z-index:2;
-}
-button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-}
-#yes{
-    background:#ff4e50;
-    color:white;
-}
-#no{
-    background:#333;
-    color:white;
-    position:absolute;
-}
-.heart{
-    position:fixed;
-    font-size:20px;
-    animation:float 4s linear forwards;
-}
-@keyframes float{
-    0%{transform:translateY(0);opacity:1;}
-    100%{transform:translateY(-500px);opacity:0;}
-}
-.bigLove{
-    position:fixed;
-    font-size:50px;
-    animation:pop 1s ease forwards;
-}
-@keyframes pop{
-    0%{transform:scale(0);}
-    100%{transform:scale(1);}
-}
+body{margin:0;font-family:sans-serif;background:linear-gradient(135deg,#ff758c,#ff7eb3);height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;color:white;}
+.box{background:rgba(255,255,255,0.15);padding:30px;border-radius:20px;backdrop-filter:blur(10px);z-index:2;position:relative;}
+button{padding:12px 25px;margin:10px;border:none;border-radius:30px;font-size:16px;cursor:pointer;}
+#yes{background:#ff4e50;color:white;}
+#no{background:#333;color:white;position:absolute;}
+.heart{position:fixed;font-size:25px;animation:float 3s linear forwards;}
+@keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-400px);opacity:0;}}
 </style>
 </head>
 <body>
 
 <div class="box">
-    <h1 id="title"></h1>
-    <p>พี่ขอโทษนะครับนะ 💔<br>ให้โอกาสพี่เซนอีกครั้งได้ไหม 🥺</p>
-    <button id="yes">ให้โอกาส 💖</button>
-    <button id="no">ไม่ให้โอกาส 😤</button>
+    <h1>ให้โอกาสพี่หน่อยนะ </h1>
+    <button id="yes">ให้อภัยพี่มั้ย </button>
+    <button id="no">ไม่ให้อภัยพี่เลย </button>
 </div>
 
-<audio id="music" src="">https://files.catbox.moe/rmj6tc.mp3</audio>
-
 <script>
-const loverName = "นมเนยสุดสวย";
-document.getElementById("title").innerHTML =
-"ถึง "คาปินมเนย" คนเดียวของของพี่เซน 💕";
-
-const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
-const music = document.getElementById("music");
+const noBtn = document.getElementById("no");
 
-noBtn.addEventListener("mouseover",moveBtn);
-noBtn.addEventListener("touchstart",moveBtn);
+noBtn.addEventListener("mouseover", moveBtn);
+noBtn.addEventListener("touchstart", moveBtn);
 
-function moveBtn(){
-    noBtn.style.top=Math.random()*80+"%";
-    noBtn.style.left=Math.random()*80+"%";
+function moveBtn() {
+    noBtn.style.top = Math.random()*80 + "%";
+    noBtn.style.left = Math.random()*80 + "%";
 }
 
-yesBtn.addEventListener("click",function(){
-    music.play();
-    for(let i=0;i<100;i++){
+yesBtn.addEventListener("click", function(){
+    for(let i=0;i<40;i++){
         createHeart();
     }
-    showBigLove();
+    alert("ขอบคุณที่ให้อภัยพี่เซน");
 });
 
 function createHeart(){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.top="90vh";
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.top = "80vh";
     document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),4000);
-}
-
-function showBigLove(){
-    const text=document.createElement("div");
-    text.classList.add("bigLove");
-    text.innerHTML="รัก "คาปินมเนยยยย" ที่สุด 💘";
-    text.style.top="40%";
-    text.style.left="50%";
-    text.style.transform="translate(-50%,-50%)";
-    document.body.appendChild(text);
+    setTimeout(() => heart.remove(),3000);
 }
 </script>
 
